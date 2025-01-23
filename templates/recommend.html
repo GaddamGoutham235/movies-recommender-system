@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommendations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-color: #000000; /* Black background */
+            color: #fff; /* White text color */
+        }
+        .recommendation {
+            display: inline-block;
+            margin: 20px;
+            text-align: center;
+        }
+        img {
+            width: 150px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+        a {
+            color: #00c6ff; /* Light blue color for the link */
+            text-decoration: none;
+            font-size: 18px;
+        }
+        a:hover {
+            text-decoration: underline; /* Underline the link on hover */
+        }
+    </style>
+</head>
+<body>
+    <h1>Recommended Movies for "{{ movie }}"</h1>
+    <div>
+        {% for name, poster in recommended_movie_names|zip(recommended_movie_posters) %}
+            <div class="recommendation">
+                <img src="{{ poster }}" alt="Movie Poster">
+                <p>{{ name }}</p>
+            </div>
+        {% endfor %}
+    </div>
+    <a href="/">Back to Home</a>
+</body>
+</html>
